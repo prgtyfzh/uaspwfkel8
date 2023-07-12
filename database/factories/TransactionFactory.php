@@ -18,8 +18,8 @@ class TransactionFactory extends Factory
     {
         return [
             'user_id' => rand(1, 100),
-            'service_id' => rand(1, 10)
-,            'customer' => ucwords(fake()->sentence()),
+            'service_id' => rand(1, 10),
+            'customer' => ucwords(fake()->sentence()),
             'berat' => fake()->randomFloat(2, 0, 100),
             'total_harga' => fake()->randomFloat(2, 0,100),
             'tgl_masuk' => fake()->date(),

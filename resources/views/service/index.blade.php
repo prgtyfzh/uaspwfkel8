@@ -8,13 +8,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-
                 <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
                     <div class="flex items-center justify-between">
                         <div>
                             <x-create-button href="{{ route('service.create') }}" />
                         </div>
-
                         <div>
                             @if (session('success'))
                                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 5000)"
@@ -29,7 +27,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="relative overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -53,13 +50,14 @@
                                             {{ $service->title }}</a>
                                     </td>
                                     <td class="px-6 py-4 md:block">
-                                        <a href="{{ route('service.edit', $service) }}"
-                                            class="hover:underline">{{ $service->harga }}
+                                        <a href="{{ route('service.edit', $service) }}" class="hover:underline">Rp
+                                            {{ number_format($service->harga, 0, ',', '.') }}
                                         </a>
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex space-x-3">
-                                            <form action="{{ route('service.destroy', $service) }}" method="Post">
+                                            <form action="{{ route('service.destroy', $service) }}" method="Post"
+                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="text-red-600 dark:text-red-400">
@@ -79,7 +77,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>

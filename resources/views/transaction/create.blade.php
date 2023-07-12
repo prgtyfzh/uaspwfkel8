@@ -110,7 +110,7 @@
                             <x-input-error class="mt-2" :messages="$errors->get('berat')" />
                         </div>
                         <div class="mb-6">
-                            <x-input-label for="tgl_masuk" :value="__('Tanggal Masuk)')" />
+                            <x-input-label for="tgl_masuk" :value="__('Tanggal Masuk')" />
                             <x-text-input id="tgl_masuk" name="tgl_masuk" type="date" class="block w-full mt-1"
                                 required autofocus autocomplete="tgl_masuk" />
                             <x-input-error class="mt-2" :messages="$errors->get('tgl_masuk')" />
